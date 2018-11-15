@@ -29,5 +29,9 @@ class TestAuthorExtract(unittest.TestCase):
         (Surname, First) = bibtex. extract_author(self.author_2)
         self.assertEqual( (Surname, First), ("Jones", "Bob") )
 
+    def test_author_3(self):
+        (Surname, First) = bibtex. extract_author(self.author_3)
+        self.assertEqual( (Surname, First), ("Pearson", "Justin Kenneth"))
+
 if __name__ == "__main__":
     unittest.main() 
