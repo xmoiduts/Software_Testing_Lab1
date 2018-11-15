@@ -3,6 +3,7 @@
 
 import bibtex
 import unittest
+
 class TestAuthorExtract(unittest.TestCase):
     def setUp(self):
         self.simple_author_1 = "Smith"
@@ -19,7 +20,14 @@ class TestAuthorExtract(unittest.TestCase):
         (Surname, FirstNames) = bibtex. extract_author(self.simple_author_1)
         self.assertEqual ( (Surname, FirstNames), ('Smith', '') )
         (Surname, FirstNames) = bibtex. extract_author(self.simple_author_2)
-        self.assertEqual ( (Surname, FirstNames), ('Jones', '') )        
+        self.assertEqual ( (Surname, FirstNames), ('Jones', '') )
+
+    def test_author_2(self):
+        #Test simple firstname author.
+        (Surname, First) = bibtex. extract_author(self.author_1)
+        self.assertEqual( (Surname, First), ("Smith", "John") )
+        (Surname, First) = bibtex. extract_author(self.author_2)
+        self.assertEqual( (Surname, First), ("Jones", "Bob") )
 
 if __name__ == "__main__":
     unittest.main() 
