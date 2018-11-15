@@ -22,5 +22,18 @@ def extract_author(input_str):
             last_name  = name_list[2] 
     return (last_name, first_name)
 
+def extract_authors(input_str):
+
+    if " and " in input_str:
+        names = input_str.split(' and ')
+        Authors = []
+        Authors.append(extract_author(names[0]))
+        Authors.append(extract_author(names[1]))
+        return Authors
+    else:
+        return extract_author(input_str)
+            
+        
+
 if __name__ == "__main__":
     main() 
